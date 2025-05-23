@@ -1,0 +1,74 @@
+/* Recursos y Eventos */
+#titulo-inicial{
+    font-family: "Archivo Black", sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 9%;
+}
+.contenedor {
+    margin-top: 4%;
+}
+/* Estilo general para las filas */
+.fila {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 38%));
+    gap: 10px;
+    margin: 10px auto;
+    padding: 5px;
+    justify-content: center;
+}
+
+/* Estilo para las tarjetas */
+.tarjeta {
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los botones */
+.boton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.boton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.boton img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.boton h2 {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #333;
+}
+
+.boton p {
+    font-size: 0.8rem;
+    color: black;
+}

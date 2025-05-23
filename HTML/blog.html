@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Polaris - Blog</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" />
+
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+    <div class="nav-left">
+        <label for="menu-toggle" class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+            <path fill="black" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+        </svg>
+        </label>
+    <a href="/HTML/inicio.html" class="logo">
+        <img src="/IMG/logo polaris.jpg" alt="logo polaris">
+    </a>
+    </div>
+</nav>
+
+<div class="menu">
+    <ul class="list">
+    <li class="list-i"><a href="test vocacional.html">Test Vocacional</a></li>
+    <li class="list-i"><a href="profesiones.html">Profesiones</a></li>
+    <li class="list-i"><a href="universidades.html">Universidades</a></li>
+    <li class="list-i"><a href="guiav.html">Guia Vocacional</a></li>
+    <li class="list-i"><a href="recuryevent.html">Recursos y Eventos</a></li>
+    <li class="list-i"><a href="#">Fechas importantes</a></li>
+    <li class="list-i"><a href="blog.html">Blog</a></li>
+    </ul>
+</div>
+<div class="comments-section-wrapper">
+
+    <div class="comments-section">
+
+        <h1 class="bienvenida">🎉 ¡Bienvenido al foro Polaris!</h1>
+        <p class="mensaje-inicial">Tu voz importa. Comparte tu experiencia con la comunidad 😊</p>
+
+
+        <div class="info-box">
+            💡 Recuerda: este es un espacio respetuoso. Sé amable y valora la opinión de los demás.
+        </div>
+
+        <hr class="separador"/>
+
+        <div class="comments-content"></div>
+            <h2>¿Cuentanos que tal la experiencia?</h2>
+            <form id="comment-form">
+                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..." required></textarea>
+                <button type="submit">🚀Enviar</button>
+            </form>
+            <div id="comments-display">
+                <h3>Comentarios:</h3>
+                <ul id="comments-list"></ul>
+            </div>
+        </div>
+    
+    <section class="faq">
+        <h2>❓ Preguntas Frecuentes</h2>
+
+        <div class="faq-item">
+            <h4>📌 ¿Necesito registrarme para comentar?</h4>
+            <p>No, puedes dejar tu comentario directamente sin registrarte. Solo escribe y envía ✍️</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>📌 ¿Puedo editar o borrar mis comentarios?</h4>
+            <p>Por ahora solo puedes eliminar tu comentario en el momento que lo publicas.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>📌 ¿Qué tipo de comentarios no están permitidos?</h4>
+            <p>No se permite lenguaje ofensivo, spam ni ataques personales. Mantén el respeto siempre 🙏</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>📌 ¿Quién puede ver mis comentarios?</h4>
+            <p>Todos los visitantes del sitio pueden verlos. Por eso, no compartas información personal.</p>
+        </div>
+    </section>
+</div>
+<footer class="pie">
+    Hecho con 💙 por Polaris — Polaris Vocacional
+</footer>
+
+<script src="/foro.js"></script>
+
+</body>
+</html>

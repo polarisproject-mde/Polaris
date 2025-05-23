@@ -1,0 +1,114 @@
+.polaris-hero {
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 170px;
+    margin-bottom: 12%;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.polaris-hero button {
+    background-color: #916f13;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .polaris-hero h1 {
+        font-size: 2.5rem;
+    }
+    .polaris-hero button {
+        font-size: 1.25rem;
+    }
+}
+
+/* beneficios */
+
+.benefits{
+    display: flex;
+    justify-content: space-around;
+}
+
+.sinli{
+    text-decoration: none;
+}
+
+.polaris-card {
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    flex: 1 1 calc(100% - 2rem);
+    max-width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 15px;
+    max-height: 200px;
+}
+
+.polaris-benefits-text{
+    margin-top: 100px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+ul, li{
+    list-style: none;
+    text-align: start;
+}
+
+.izq{
+    margin-right: 50px;
+}
+
+.der{
+    margin-left: 50px;
+}
+
+.polaris-benefits-text h2{
+    margin-left: 30px;
+    color: #916f13;
+}
+
+.star{
+    color: #916f13;
+}
+
+img{
+    width: 25%;
+    height: 25%;
+}
+
+#gorro{
+    width: 30%;
+    height: 30%;
+}
+
+.polaris-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.polaris-card h3 {
+    color: #003360;
+    font-size: 1.25rem;
+}
+@media (min-width: 768px) {
+    .polaris-card {
+        flex: 1 1 200px;
+    }
+    .polaris-card h3 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,140 @@
+.contenedor-total{
+    display: flex;
+}
+.sidebar{
+    position: fixed;
+}
+.search-form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 15%;
+    left: 5%;
+    width: 300px;
+    margin-top: 2%;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+#boton-buscar{
+    background-color: #082147;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.search-form select,
+.search-form input[type="text"],
+.search-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "Archivo Black", sans-serif;
+
+}
+.estilos-botton{
+    background: linear-gradient(90deg,#a6a6a6,#ffffff);
+}
+
+.search-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .search-form {
+        padding: 15px;
+    }
+
+    .search-form label {
+        font-size: 14px;
+    }
+
+    .search-form select,
+    .search-form input[type="text"],
+    .search-form button {
+        font-size: 14px;
+    }
+}
+@media (min-width: 600px) {
+    .search-form {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-form {
+        max-width: 800px;
+    }
+}
+/* informacion de la derecha */
+.contenido-derecho {
+    padding: 20px;
+    color: #fff;
+    width: calc(75% - 10%);
+    margin-left: auto;
+    margin-top: 10%;
+}
+
+.frase-motivadora {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.frase-motivadora h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.frase-motivadora p {
+    margin: 5px 0 0;
+}
+
+.carreras-recomendadas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tarjeta-carrera {
+    background-color: #1e2a38;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00000030;
+}
+
+.tarjeta-carrera h4 {
+    margin: 0 0 5px;
+}
+
+.tarjeta-carrera button {
+    margin-top: 10px;
+    background-color: #0066ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
