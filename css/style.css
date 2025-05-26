@@ -4,6 +4,7 @@ body {
     min-height: 100vh;
     font-family: "Archivo Black", sans-serif;
     background: linear-gradient(to bottom, #000000, #0c0030, #082147, #082147, #003360);
+    overflow-x: hidden;
 }
 #menu-toggle {
     display: none;

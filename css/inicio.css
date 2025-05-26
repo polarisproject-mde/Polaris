@@ -1,14 +1,18 @@
 .polaris-hero {
     color: white;
-    padding: 4rem 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 170px;
-    margin-bottom: 12%;
+    padding: 0 2rem;
 }
 
 h1 {
     font-size: 50px;
 }
+
 
 .polaris-hero button {
     background-color: #916f13;
@@ -112,3 +116,4 @@ img{
         font-size: 1.5rem;
     }
 }
+
