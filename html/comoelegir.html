@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Polaris - Universidades</title>
+    <title>Polaris - Cómo elegir una carrera</title>
     <link rel="icon" href="../img/Polaris vert.png">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/universidades.css">
+    <link rel="stylesheet" href="../css/comoelegir.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -41,30 +41,92 @@
     </ul>
 </div>
 
-<div class="main-uni">
-    <div class="filter">
-        <select name="Área de conocimiento" id="area-conocimiento">
-            <option disabled selected>Área de conocimiento</option>
-            <option value="Ingenieria">Ingenieria</option>
-            <option value="Salud">Salud</option>
-            <option value="Humanidades">Humanidades</option>
-        </select>
-        <select name="Modalidad de estudio" id="modal-study">
-            <option disabled selected>Modalidad de estudio</option>
-            <option value="Presencial">Presencial</option>
-            <option value="Virtual">Virtual</option>
-        </select>
-        <select name="Tipo de universidad" id="type-uni">
-            <option disabled selected>Tipo de universidad</option>
-            <option value="Publica">Pública</option>
-            <option value="Privada">Privada</option>
-        </select>
-        <button id="btn-buscaru">Buscar</button>
+<div class="contain-main">
+
+
+<section>
+    <h1>¿Cómo elegir una carrera?</h1>
+</section>
+
+<section>
+    <div class="content">
+        <div class="text">
+            <h2>Autoconocimiento</h2>
+            <p>Identifica tus intereses, habilidades, valores y pasiones. Pregúntate: ¿Qué disfruto hacer? ¿En qué actividades destaco? ¿Qué tipo de entorno laboral me atrae?</p>
+        </div>
+        <div class="img">
+            <img src="../img/bombi.png" alt="">
+        </div>
     </div>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11550.448973536431!2d-75.57032119137646!3d6.268828529380542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1744766078673!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+</section>
+
+<section>
+    <div class="content">
+        <div class="img">
+            <img src="../img/lupav.png" alt="">
+        </div>
+        <div class="text">
+            <h2>Investiga las opciones</h2>
+            <p>Lee sobre diferentes carreras, habla con profesionales, asiste a ferias universitarias, busca entrevistas y videos sobre esas carreras.</p>
+        </div>
     </div>
+</section>
+
+<section>
+    <div class="content">
+        <div class="text">
+            <h2>Metas y estilo de vida</h2>
+            <p>Piensa en el tipo de vida que quieres llevar: ¿prefieres estabilidad, creatividad, retos, ayudar a otros?</p>
+        </div>
+        <div class="img">
+            <img src="../img/meta.png" alt="">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="content">
+        <div class="img">
+            <img src="../img/graf.png" alt="">
+        </div>
+        <div class="text">
+            <h2>Demanda laboral</h2>
+            <p>Consulta fuentes confiables (observatorios laborales, estadísticas oficiales) para ver las proyecciones de empleo.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="content">
+        <div class="text">
+            <h2>Prueba antes de decidir</h2>
+            <p>Realiza talleres, cursos cortos, voluntariados o pasantías para explorar cómo es realmente esa área.</p>
+        </div>
+        <div class="img">
+            <img src="../img/herramienta.png" alt="">
+        </div>
+    </div>
+</section>
 </div>
+
+<script>
+    const images = document.querySelectorAll('.img img');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2 
+    });
+
+    images.forEach(img => {
+        observer.observe(img);
+    });
+</script>
 
 <footer>
     <p class="foot-titulo">Nosotros</p>

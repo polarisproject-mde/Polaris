@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Polaris</title>
+    <title>Polaris - Guía vocacional</title>
     <link rel="icon" href="../img/Polaris vert.png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/guiav.css">
@@ -14,7 +14,7 @@
 <body>
     <input type="checkbox" id="menu-toggle" />
 
-    <div class="overlay"></div>
+    <div class="overlay" id="overlay"></div>
 
     <nav class="navbar">
     <div class="nav-left" id="toggleButton">
@@ -23,7 +23,7 @@
             <path fill="black" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
         </svg>
         </label>
-    <a href="../index.html" class="logo">
+    <a href="/index.html" class="logo">
         <img src="../img/logo polaris.jpg" alt="logo polaris">
     </a>
     </div>
@@ -36,7 +36,7 @@
     <li class="list-i"><a href="universidades.html">Universidades</a></li>
     <li class="list-i"><a href="guiav.html">Guia Vocacional</a></li>
     <li class="list-i"><a href="recuryevent.html">Recursos y Eventos</a></li>
-    <li class="list-i"><a href="#">Fechas importantes</a></li>
+    <li class="list-i"><a href="fechasimp.html">Fechas importantes</a></li>
     <li class="list-i"><a href="blog.html">Blog</a></li>
     </ul>
 </div>
@@ -44,10 +44,10 @@
 <h1>Guía vocacional</h1>
 
 <div class="container-text">
-    <button class="btn abajo">¿Cómo elegir una carrera?</button>
-    <button class="btn arriba">Errores comunes</button>
-    <button class="btn arriba">Mitos y realidades</button>
-    <button class="btn abajo">Carreras más demandadas</button>
+    <a href="comoelegir.html" class="abajo"><button class="btn">¿Cómo elegir una carrera?</button></a>
+    <a href="errorescom.html"><button class="btn arriba">Errores comunes</button></a>
+    <a href="mitosyr.html"><button class="btn arriba">Mitos y realidades</button></a>
+    <a href="carrerasdem.html" class="abajo"><button class="btn">Carreras más demandadas</button></a>
 </div>
 
 <div class="circle-container">
@@ -65,14 +65,14 @@
             <li>📞 +57 333 333 3333</li>
         </ul>
         <ul>
-            <li class="foot-list"><a href="html/quienes_somos.html">¿Quiénes somos?</a></li>
-            <li class="foot-list"><a href="html/test vocacional.html">Test Vocacional</a></li>
-            <li class="foot-list"><a href="html/profesiones.html">Profesiones</a></li>
-            <li class="foot-list"><a href="html/universidades.html">Universidades</a></li>
-            <li class="foot-list"><a href="html/guiav.html">Guia Vocacional</a></li>
-            <li class="foot-list"><a href="html/recuryevent.html">Rescursos y Eventos</a></li>
-            <li class="foot-list"><a href="#">Fechas Importantes</a></li>
-            <li class="foot-list"><a href="html/blog.html">Blog</a></li>
+            <li class="foot-list"><a href="quienes_somos.html">¿Quiénes somos?</a></li>
+            <li class="foot-list"><a href="test vocacional.html">Test Vocacional</a></li>
+            <li class="foot-list"><a href="profesiones.html">Profesiones</a></li>
+            <li class="foot-list"><a href="universidades.html">Universidades</a></li>
+            <li class="foot-list"><a href="guiav.html">Guia Vocacional</a></li>
+            <li class="foot-list"><a href="recuryevent.html">Rescursos y Eventos</a></li>
+            <li class="foot-list"><a href="fechasimp.html">Fechas Importantes</a></li>
+            <li class="foot-list"><a href="blog.html">Blog</a></li>
         </ul>
         
         <form action="">
@@ -86,6 +86,8 @@
     </div>
     <p class="copy">© 2025 - Polaris <br> Todos los derechos reservados</p>
 </footer>
+
+<script src="../clicmenu.js"></script>
 
 </body>
 </html>

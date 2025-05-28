@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Polaris - Fechas importantes</title>
+    <link rel="icon" href="../img/Polaris vert.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/fechasimp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" />
+
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="navbar">
+    <div class="nav-left" id="toggleButton">
+        <label for="menu-toggle" class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+            <path fill="black" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+        </svg>
+        </label>
+    <a href="/index.html" class="logo">
+        <img src="../img/logo polaris.jpg" alt="logo polaris">
+    </a>
+    </div>
+</nav>
+
+<div class="menu" id="menu">
+    <ul class="list">
+    <li class="list-i"><a href="test vocacional.html">Test Vocacional</a></li>
+    <li class="list-i"><a href="profesiones.html">Profesiones</a></li>
+    <li class="list-i"><a href="universidades.html">Universidades</a></li>
+    <li class="list-i"><a href="guiav.html">Guia Vocacional</a></li>
+    <li class="list-i"><a href="recuryevent.html">Recursos y Eventos</a></li>
+    <li class="list-i"><a href="fechasimp.html">Fechas importantes</a></li>
+    <li class="list-i"><a href="blog.html">Blog</a></li>
+    </ul>
+</div>
+
+<main id="fechas-importantes"> <!-- Sección de Fechas Importantes con calendario y barra lateral de eventos -->
+    <aside id="event-sidebar"> <!-- Barra lateral de eventos con botón + y lista de próximos eventos -->
+        <button id="add-event-btn" title="Añadir evento">+</button>
+        <h3>Próximos eventos</h3>
+        <ul id="event-list"> <!-- Lista de eventos próximos --> </ul>
+    </aside>
+    <section id="calendar-section"> <!-- Sección del calendario interactivo -->
+        <div id="calendar-header"> <!-- Encabezado del calendario con mes/año y navegación -->
+            <button id="prev-month">&lt;</button>
+            <span id="month-year"></span>
+            <button id="next-month">&gt;</button>
+        </div>
+        <ul class="weekdays"> <!-- Encabezado de días de la semana -->
+            <li>Lun</li><li>Mar</li><li>Mié</li><li>Jue</li><li>Vie</li><li>Sáb</li><li>Dom</li>
+        </ul>
+        <ul id="calendar-days"> <!-- Días del mes --> </ul>
+    </section>
+</main>
+<!-- Botón para mostrar/ocultar barra lateral en móvil -->
+<button id="toggle-sidebar-btn" title="Mostrar eventos">&#9776;</button>
+
+<!-- Modal para añadir un nuevo evento -->
+<div id="event-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <h2>Añadir Evento</h2>
+        <input type="text" id="event-name" placeholder="Nombre del evento" required>
+        <input type="date" id="event-date" required>
+        <input type="time" id="event-time" required>
+        <button id="save-event-btn">Guardar</button>
+    </div>
+</div>
+
+<!-- Modal para mostrar detalles de los eventos de un día -->
+<div id="details-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-details" class="close-btn">&times;</span>
+        <h2>Eventos</h2>
+        <div id="details-content"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Variables del DOM
+        const eventList = document.getElementById('event-list');
+        const calendarDays = document.getElementById('calendar-days');
+        const monthYear = document.getElementById('month-year');
+        const prevBtn = document.getElementById('prev-month');
+        const nextBtn = document.getElementById('next-month');
+        const addEventBtn = document.getElementById('add-event-btn');
+        const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
+        const eventModal = document.getElementById('event-modal');
+        const detailsModal = document.getElementById('details-modal');
+        const closeModal = document.getElementById('close-modal');
+        const closeDetails = document.getElementById('close-details');
+        const saveEventBtn = document.getElementById('save-event-btn');
+    
+        // Arreglo para almacenar eventos del calendario (nombre, fecha, hora)
+        let events = [];
+    
+        // Fecha actual (mes y año inicial)
+        let currDate = new Date();
+        let currMonth = currDate.getMonth();
+        let currYear = currDate.getFullYear();
+    
+        // Mostrar mes y año actuales en el calendario
+        function updateMonthYear() {
+            const options = { month: 'long', year: 'numeric' };
+            monthYear.textContent = currDate.toLocaleDateString('es-ES', options);
+        }
+    
+        // Genera los días del mes actual en el calendario
+        function renderCalendar() {
+            updateMonthYear();
+            calendarDays.innerHTML = '';
+            // Calcular primer día de la semana (Lun=1, Dom=7)
+            let firstDay = new Date(currYear, currMonth, 1).getDay();
+            if (firstDay === 0) firstDay = 7;
+            const prevMonthDays = new Date(currYear, currMonth, 0).getDate();
+            // Días en blanco antes del inicio del mes
+            for (let i = firstDay - 1; i > 0; i--) {
+                const li = document.createElement('li');
+                li.textContent = prevMonthDays - i + 1;
+                li.classList.add('inactive');
+                calendarDays.appendChild(li);
+            }
+            // Días del mes actual
+            const daysInMonth = new Date(currYear, currMonth + 1, 0).getDate();
+            for (let d = 1; d <= daysInMonth; d++) {
+                const li = document.createElement('li');
+                li.textContent = d;
+              // Si hay eventos este día, marcar con clase "event-day"
+                const dateStr = currYear + '-' + String(currMonth+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+                if (events.some(ev => ev.date === dateStr)) {
+                li.classList.add('event-day');
+                }
+              // Resaltar día actual
+                if (d === currDate.getDate() && currMonth === currDate.getMonth() && currYear === currDate.getFullYear()) {
+                li.classList.add('active');
+                }
+              // Al hacer clic, mostrar detalles de eventos del día
+                li.addEventListener('click', function() {
+                const dayEvents = events.filter(ev => ev.date === dateStr);
+                const detailsContent = document.getElementById('details-content');
+                detailsContent.innerHTML = '';
+                if (dayEvents.length > 0) {
+                    const ul = document.createElement('ul');
+                    dayEvents.forEach(ev => {
+                    const item = document.createElement('li');
+                    item.textContent = ev.time + ' - ' + ev.name;
+                    ul.appendChild(item);
+                    });
+                    detailsContent.appendChild(ul);
+                } else {
+                    detailsContent.textContent = 'No hay eventos para este día.';
+                }
+                detailsModal.style.display = 'flex';
+                });
+                calendarDays.appendChild(li);
+            }
+        }
+    
+        // Actualiza la lista de eventos próximos en la barra lateral
+        function updateEventList() {
+            eventList.innerHTML = '';
+            // Ordenar eventos por fecha y hora
+            events.sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time));
+            events.forEach(ev => {
+            const li = document.createElement('li');
+            const dateObj = new Date(ev.date + 'T' + ev.time);
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                li.innerHTML = '<strong>' + ev.name + '</strong><br><span class="time">' +
+                            dateObj.toLocaleDateString('es-ES', options) + ' ' + ev.time + '</span>';
+            eventList.appendChild(li);
+            });
+        }
+    
+        // Mostrar mes anterior
+        prevBtn.addEventListener('click', function() {
+            currMonth--;
+            if (currMonth < 0) { currMonth = 11; currYear--; }
+            currDate = new Date(currYear, currMonth);
+            renderCalendar();
+        });
+        // Mostrar mes siguiente
+        nextBtn.addEventListener('click', function() {
+            currMonth++;
+            if (currMonth > 11) { currMonth = 0; currYear++; }
+            currDate = new Date(currYear, currMonth);
+            renderCalendar();
+        });
+    
+        // Abrir modal para añadir un evento
+        addEventBtn.addEventListener('click', function() {
+            eventModal.style.display = 'flex';
+        });
+        // Cerrar modales
+        closeModal.addEventListener('click', () => eventModal.style.display = 'none');
+        closeDetails.addEventListener('click', () => detailsModal.style.display = 'none');
+    
+        // Guardar el evento ingresado y actualizar calendario y lista de eventos
+        saveEventBtn.addEventListener('click', function() {
+            const name = document.getElementById('event-name').value;
+            const date = document.getElementById('event-date').value;
+            const time = document.getElementById('event-time').value;
+            if (name && date && time) {
+                events.push({ name: name, date: date, time: time });
+                updateEventList();
+                renderCalendar();
+                // Limpiar inputs y cerrar modal
+                document.getElementById('event-name').value = '';
+                document.getElementById('event-date').value = '';
+                document.getElementById('event-time').value = '';
+                eventModal.style.display = 'none';
+            }
+        });
+    
+        // Mostrar/ocultar barra lateral en móvil
+        toggleSidebarBtn.addEventListener('click', function() {
+            document.getElementById('event-sidebar').classList.toggle('show');
+        });
+    
+        // Inicializar calendario y lista de eventos
+        renderCalendar();
+        updateEventList();
+    });
+
+    function mostrarBotonSegunPantalla() {
+    const boton = document.getElementById("toggle-sidebar-btn");
+    if (window.innerWidth <= 768) {
+        boton.style.display = "block";
+    } else {
+        boton.style.display = "none";
+    }
+}
+
+window.addEventListener("resize", mostrarBotonSegunPantalla);
+window.addEventListener("load", mostrarBotonSegunPantalla);
+    </script>
+
+
+<footer>
+    <p class="foot-titulo">Nosotros</p>
+    <div class="info">
+        <ul class="inter">
+            <li>📍 Medellín, Colombia</li>
+            <li>✉️ polarishelpco@gmail.com</li>
+            <li>📞 +57 333 333 3333</li>
+        </ul>
+        <ul>
+            <li class="foot-list"><a href="quienes_somos.html">¿Quiénes somos?</a></li>
+            <li class="foot-list"><a href="test vocacional.html">Test Vocacional</a></li>
+            <li class="foot-list"><a href="profesiones.html">Profesiones</a></li>
+            <li class="foot-list"><a href="universidades.html">Universidades</a></li>
+            <li class="foot-list"><a href="guiav.html">Guia Vocacional</a></li>
+            <li class="foot-list"><a href="recuryevent.html">Rescursos y Eventos</a></li>
+            <li class="foot-list"><a href="#">Fechas Importantes</a></li>
+            <li class="foot-list"><a href="blog.html">Blog</a></li>
+        </ul>
+        
+        <form action="">
+            <ul class="form">
+                <li><input type="text" name="Nombre"  placeholder="Nombre:" required id="name"></li>
+                <li><input type="email" name="Email" placeholder="Email:" required id="email"></li>
+                <li><input type="text" name="Solicitud" placeholder="Solicitud:" required id="soli"></li>
+                <li><input type="submit" value="Enviar" id="submit"></li>
+            </ul>
+        </form>
+    </div>
+    <p class="copy">© 2025 - Polaris <br> Todos los derechos reservados</p>
+</footer>
+
+<script src="../clicmenu.js"></script>
+
+</body>
+</html>

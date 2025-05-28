@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/profesiones.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <input type="checkbox" id="menu-toggle" />
 
-    <div class="overlay"></div>
+    <div class="overlay" id="overlay"></div>
 
     <nav class="navbar">
-    <div class="nav-left">
+    <div class="nav-left" id="toggleButton">
         <label for="menu-toggle" class="menu-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
             <path fill="black" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
@@ -28,14 +28,15 @@
     </a>
     </div>
 </nav>
-<div class="menu">
+
+<div class="menu" id="menu">
     <ul class="list">
     <li class="list-i"><a href="test vocacional.html">Test Vocacional</a></li>
     <li class="list-i"><a href="profesiones.html">Profesiones</a></li>
     <li class="list-i"><a href="universidades.html">Universidades</a></li>
     <li class="list-i"><a href="guiav.html">Guia Vocacional</a></li>
     <li class="list-i"><a href="recuryevent.html">Recursos y Eventos</a></li>
-    <li class="list-i"><a href="#">Fechas importantes</a></li>
+    <li class="list-i"><a href="fechasimp.html">Fechas importantes</a></li>
     <li class="list-i"><a href="blog.html">Blog</a></li>
     </ul>
 </div>
@@ -123,6 +124,7 @@
 </div>
 </div>
 
+<script src="../clicmenu.js"></script>
 
 </body>
 </html>
