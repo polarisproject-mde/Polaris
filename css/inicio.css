@@ -108,7 +108,7 @@ img{
     color: #003360;
     font-size: 1.25rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 428px) {
     .polaris-card {
         flex: 1 1 200px;
     }
@@ -116,4 +116,16 @@ img{
         font-size: 1.5rem;
     }
 }
-
+@media (max-width: 428px) {
+    .benefits{
+        display: block;
+    }
+    .izq{
+        margin-right: 0px;
+        margin: 50px;
+    }
+    .der{
+        margin-left: 0px;
+        margin: 50px;
+    }
+}

@@ -1,6 +1,6 @@
+
 /* Recursos y Eventos */
 #titulo-inicial{
-    font-family: "Archivo Black", sans-serif;
     font-size: 2.5rem;
     color: white;
     text-align: center;
@@ -40,8 +40,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    text-align: center; 
     transition: background-color 0.2s ease;
     display: flex;
     flex-direction: column;
@@ -71,4 +70,9 @@
 .boton p {
     font-size: 0.8rem;
     color: black;
+}
+@media(max-width: 480px) {
+    #titulo-inicial{
+        margin-top: 30%;
+    }
 }
